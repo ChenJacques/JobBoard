@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jobapplication index{% endblock %}
+
+{% block body %}
+    <h1>Jobapplication index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IdCompagnies</th>
+                <th>IdPeoples</th>
+                <th>IdAdvertisements</th>
+                <th>Mail</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jobapplication in jobapplications %}
+            <tr>
+                <td>{{ jobapplication.id }}</td>
+                <td>{{ jobapplication.idCompagnies }}</td>
+                <td>{{ jobapplication.idPeoples }}</td>
+                <td>{{ jobapplication.idAdvertisements }}</td>
+                <td>{{ jobapplication.mail ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_jobapplication_show', {'id': jobapplication.id}) }}">show</a>
+                    <a href="{{ path('app_jobapplication_edit', {'id': jobapplication.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_jobapplication_new') }}">Create new</a>
+{% endblock %}

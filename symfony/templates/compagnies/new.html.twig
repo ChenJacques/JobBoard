@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Compagnies{% endblock %}
+
+{% block body %}
+    <h1>Create new Compagnies</h1>
+
+    {{ include('compagnies/_form.html.twig') }}
+
+    <a href="{{ path('app_compagnies_index') }}">back to list</a>
+{% endblock %}
